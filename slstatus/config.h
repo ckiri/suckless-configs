@@ -65,12 +65,14 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ ipv4, "%s|", "wlp9s0" },
-	{ run_command, "VOL:%s%%|", "pulsemixer --get-volume | awk '{print ($1 + $2) / 2}'" },
-	{ cpu_perc, "CPU:%s%%|", "NULL" },
-	{ ram_perc, "RAM:%s%%,", "NULL" },
-	{ ram_used, "%s|", "NULL" },
-	{ disk_perc, "disk:%s%%,", "/" },
-	{ disk_used, "%s|", "/" },
-	{ datetime, "%s","%d-%m-%y>%T" },
+	{ ipv4, "[net: %s]", "wlp9s0" },
+	{ run_command, " [vol: %s%%]", "pulsemixer --get-volume | awk '{print ($1 + $2) / 2}'" },
+	{ cpu_perc, " [CPU:%s%%]", "NULL" },
+	{ ram_perc, " [RAM: %s%%,", "NULL" },
+	{ ram_used, " %s]", "NULL" },
+	{ disk_perc, " [disk: %s%%,", "/" },
+	{ disk_used, "%s]", "/" },
+	{ battery_perc, " [bat: %s", "BAT1" },
+	{ battery_state, "%s]", "BAT1" },
+	{ datetime, " %s","%d-%m-%y>%T" },
 };
